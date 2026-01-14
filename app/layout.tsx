@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { store } from "./store";
-import { Provider } from "react-redux";
-import Auth from "@/components/Auth";
 
 export const metadata: Metadata = {
   title: "Summarist",
@@ -16,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="">
-        <Provider store={store}><Auth />{children}</Provider>
-      </body>
+      <body className="">{children}</body>
     </html>
   );
 }
