@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const Features = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const headings = [
+  const headings: string[] = [
     "Enhance your knowledge",
     "Achieve greater success",
     "Improve your health",
@@ -15,7 +15,7 @@ const Features = () => {
     "Be the best version of yourself!",
   ];
 
-  const headingsSecond = [
+  const headingsSecond: string[] = [
     "Expand your learning",
     "Accomplish your goals",
     "Strengthen your vitality",
