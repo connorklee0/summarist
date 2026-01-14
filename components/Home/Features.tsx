@@ -1,7 +1,37 @@
-import React from "react";
+"use client";
+
 import { AiFillFileText, AiFillBulb, AiFillAudio } from "react-icons/ai";
+import { useState, useEffect } from "react";
 
 const Features = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const headings = [
+    "Enhance your knowledge",
+    "Achieve greater success",
+    "Improve your health",
+    "Develop better parenting skills",
+    "Increase happiness",
+    "Be the best version of yourself!",
+  ];
+
+  const headingsSecond = [
+    "Expand your learning",
+    "Accomplish your goals",
+    "Strengthen your vitality",
+    "Become a better caregiver",
+    "Improve your mood",
+    "Maximize your abilities",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % headings.length);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="features">
       <div className="container">
@@ -38,16 +68,16 @@ const Features = () => {
           </div>
           <div className="statistics__wrapper">
             <div className="statistics__content--header">
-              <div className="statistics__heading">Enhance your knowledge</div>
-              <div className="statistics__heading">Achieve greater success</div>
-              <div className="statistics__heading">Improve your health</div>
-              <div className="statistics__heading">
-                Develop better parenting skills
-              </div>
-              <div className="statistics__heading">Increase happiness</div>
-              <div className="statistics__heading">
-                Be the best version of yourself!
-              </div>
+              {headings.map((heading, index) => (
+                <div
+                  key={index}
+                  className={`statistics__heading ${
+                    index === activeIndex ? "statistics__heading--active" : ""
+                  }`}
+                >
+                  {heading}
+                </div>
+              ))}
             </div>
             <div className="statistics__content--details">
               <div className="statistics__data">
@@ -105,16 +135,16 @@ const Features = () => {
               </div>
             </div>
             <div className="statistics__content--header statistics__content--header-second">
-              <div className="statistics__heading">Expand your learning</div>
-              <div className="statistics__heading">Accomplish your goals</div>
-              <div className="statistics__heading">
-                Strengthen your vitality
-              </div>
-              <div className="statistics__heading">
-                Become a better caregiver
-              </div>
-              <div className="statistics__heading">Improve your mood</div>
-              <div className="statistics__heading">Maximize your abilities</div>
+              {headingsSecond.map((heading, index) => (
+                <div
+                  key={index}
+                  className={`statistics__heading ${
+                    index === activeIndex ? "statistics__heading--active" : ""
+                  }`}
+                >
+                  {heading}
+                </div>
+              ))}
             </div>
           </div>
         </div>

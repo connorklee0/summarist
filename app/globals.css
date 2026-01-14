@@ -132,7 +132,7 @@ button:disabled {
 .statistics__wrapper {
   display: flex;
   gap: 80px;
-  margin: 0 96px;
+  margin: 96px 0;
 }
 
 .statistics__wrapper:last-child {
