@@ -5,9 +5,9 @@ import Landing from "../public/home/landing.png";
 export default function Home() {
   return (
     <>
-      <nav className="h-20">
+      <nav className="h-20 w-full flex justify-center">
         <div className="flex justify-between items-center max-w-[1070px] w-full h-full px-6 mx-auto">
-          <figure className="max-w-50 w-full">
+          <figure className="max-w-[200px] w-full">
             <Image className="w-full h-full" src={Logo} alt="logo" />
           </figure>
           <ul className="flex gap-6">
@@ -29,12 +29,12 @@ export default function Home() {
       <section id="landing">
         <div className="container">
           <div className="row">
-            <div className="flex">
-              <div className="w-full flex flex-col space-y-6">
-                <div className="text-[#032b41] text-[40px] font-bold">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+              <div className="w-full max-w-[560px] flex flex-col space-y-6 md:pt-6">
+                <div className="text-[#032b41] text-[40px] font-bold landing__text">
                   Gain more knowledge <br className="md:hidden" /> in less time
                 </div>
-                <div className="text-[#394547] text-[20px] font-light leading-normal">
+                <div className="text-[#394547] text-[20px] font-light leading-tight landing__text">
                   Great summaries for busy people, <br className="md:hidden" />
                   individuals who barely have time to read,{" "}
                   <br className="md:hidden" />
@@ -44,7 +44,7 @@ export default function Home() {
                   Login
                 </button>
               </div>
-              <figure className="w-full h-full max-w-[400px]">
+              <figure className="w-full h-full max-w-100">
                 <Image src={Landing} alt="landing" />
               </figure>
             </div>
