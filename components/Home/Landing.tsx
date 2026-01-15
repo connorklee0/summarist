@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import LandingImg from "../../public/home/landing.png";
+import { useModal } from "../modals/useModal";
 
 const Landing = () => {
+  const { openLoginModal } = useModal();
   return (
     <section id="landing">
       <div className="container">
@@ -17,7 +20,10 @@ const Landing = () => {
                 <br className="md:hidden" />
                 and even people who don't like to read.
               </div>
-              <button className="btn max-w-75 flex items-center justify-center">
+              <button
+                className="btn max-w-75 flex items-center justify-center"
+                onClick={openLoginModal}
+              >
                 Login
               </button>
             </div>
