@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const SideBar = () => {
   return (
-    <div className="w-50 min-w-50 text-black bg-[#dfe8e5dc]">
+    <div className="w-50 min-w-50 text-black">
       <div className="max-w-40 h-15 mx-auto pt-5">
         <Image src={Logo} alt="Logo" />
       </div>
