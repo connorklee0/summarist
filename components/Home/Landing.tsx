@@ -7,7 +7,7 @@ const Landing = () => {
       <div className="container">
         <div className="row">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div className="w-full max-w-[560px] flex flex-col text-left space-y-6 max-md:pt-6 max-md:items-center max-md:max-w-[540px] max-md:mx-auto max-md:text-center">
+            <div className="w-full max-w-140 flex flex-col text-left space-y-6 max-md:pt-6 max-md:items-center max-md:max-w-135 max-md:mx-auto max-md:text-center">
               <div className="text-[#032b41] text-[40px] font-bold landing__text max-md:text-[24px]">
                 Gain more knowledge <br className="md:hidden" /> in less time
               </div>
