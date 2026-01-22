@@ -9,12 +9,14 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
+    <div className="flex min-h-screen w-full">
+      <div className="fixed">
+        <Sidebar />
+      </div>
 
-      <div className="flex-1 flex flex-col max-w-267.5">
+      <div className="flex-1">
         <Search />
-        <main className="flex-1 p-6">{children}</main>
+        <main className="flex justify-start w-full">{children}</main>
       </div>
     </div>
   );

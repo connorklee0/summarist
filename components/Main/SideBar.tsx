@@ -12,7 +12,7 @@ const SideBar = () => {
     return;
   }
   return (
-    <div className="w-50 min-w-50 text-black">
+    <div className="w-50 min-w-50 text-black bg-[#e5e4e4]">
       <div className="max-w-40 h-15 mx-auto pt-5">
         <Image src={Logo} alt="Logo" />
       </div>
