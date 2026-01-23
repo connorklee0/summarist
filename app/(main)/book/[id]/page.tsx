@@ -12,7 +12,7 @@ export default async function BookPage({ params }: { params: { id: string } }) {
   return (
     <div className="container">
       <div className="row flex">
-        <div className="flex flex-col gap-4 w-[70%]">
+        <div className="flex flex-col gap-4 w-[70%] pr-4">
           <div className="font-bold text-4xl">{book.title}</div>
           <div className="font-bold text-xl">{book.author}</div>
           <div className="font-extralight text-xl">{book.subTitle}</div>
