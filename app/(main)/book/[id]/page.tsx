@@ -9,7 +9,6 @@ export default async function BookPage({ params }: { params: { id: string } }) {
   const { id } = await params;
   const book = await getBookById(id);
 
-  console.log(book);
   return (
     <div className="container">
       <div className="row flex">
