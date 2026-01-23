@@ -23,11 +23,13 @@ const SideBar = () => {
               href="/for-you"
               icon={<AiOutlineHome />}
               label="For You"
+              disabled={false}
             />
             <SidebarItem
               href="/library"
               icon={<RxBookmark />}
               label="My Library"
+              disabled={true}
             />
             <SidebarItem
               icon={<RiBallPenLine />}
