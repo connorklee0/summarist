@@ -10,7 +10,7 @@ export default function MainLayout({
 }) {
   return (
     <div className="flex min-h-screen w-full">
-      <div className="fixed left-0 top-0 h-screen w-64">
+      <div className="fixed">
         <SideBar />
       </div>
 
