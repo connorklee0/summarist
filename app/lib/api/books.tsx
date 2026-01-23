@@ -29,3 +29,15 @@ export async function getBooks(status: BookStatus): Promise<Book[]> {
 export const getSelectedBook = () => getBooks("selected");
 export const getRecommendedBooks = () => getBooks("recommended");
 export const getSuggestedBooks = () => getBooks("suggested");
+
+export async function getBookById(id: string) {
+  const res = await fetch(
+    `https://us-central1-summaristt.cloudfunctions.net/getBook?id=${id}`
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch book");
+  }
+  
+  return res.json();
+}

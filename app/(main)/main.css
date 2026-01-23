@@ -32,3 +32,11 @@
   margin-bottom: 16px;
   font-weight: lighter;
 }
+
+/* Book Page */
+.book--btn {
+  background-color: #032b41;
+  color: white;
+  padding: 12px 40px;
+  border-radius: 4px;
+}
