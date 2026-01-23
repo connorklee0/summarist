@@ -2,7 +2,7 @@ import { IoIosSearch } from "react-icons/io";
 
 const Search = () => {
   return (
-    <header className="bg-white border-b p-4 border-[#e1e7ea]">
+    <header className="bg-white border-b p-4 border-[#ced4d7]">
       <div className="flex justify-end mr-40">
         <div className="relative max-w-md">
           <input
