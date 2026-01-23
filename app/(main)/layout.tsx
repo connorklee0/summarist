@@ -1,5 +1,5 @@
 import Search from "@/components/Main/Search";
-import Sidebar from "../../components/Main/Sidebar";
+import Sidebar from "@/components/Main/Sidebar";
 
 import "./main.css";
 
