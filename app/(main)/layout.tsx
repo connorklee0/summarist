@@ -1,5 +1,5 @@
 import Search from "@/components/Main/Search";
-import Sidebar from "@/components/Main/Sidebar";
+import SideBar from "@/components/Main/SideBar";
 
 import "./main.css";
 
@@ -11,7 +11,7 @@ export default function MainLayout({
   return (
     <div className="flex min-h-screen w-full">
       <div className="fixed">
-        <Sidebar />
+        <SideBar />
       </div>
 
       <div className="flex-1">
