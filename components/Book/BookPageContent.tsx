@@ -31,16 +31,16 @@ export default async function BookPageContent({
           <div className="border-b border-[#ced4d7]"></div>
           <div className="flex gap-4">
             <button className="book--btn">
-              <div className="flex items-center gap-2">
+              <a className="flex items-center gap-2" href={`/player/${id}`}>
                 <LuBookOpenText className="text-xl" />
                 Read
-              </div>
+              </a>
             </button>
             <button className="book--btn">
-              <div className="flex items-center gap-2">
+              <a className="flex items-center gap-2" href={`/player/${id}`}>
                 <HiOutlineMicrophone className="text-xl" />
                 Listen
-              </div>
+              </a>
             </button>
           </div>
           <div className="text-[#0365f2] flex gap-2 items-center cursor-not-allowed">
