@@ -270,7 +270,7 @@ button:disabled {
 }
 
 #footer {
-  background-color: rgb(241 246 244);
+  background-color: #e5e4e4;
 }
 
 .footer__top--wrapper {
@@ -279,6 +279,7 @@ button:disabled {
   justify-content: space-between;
   font-size: 14px;
   margin: 32px auto 64px;
+  max-width: 1280px;
 }
 
 .footer__block {
@@ -421,4 +422,3 @@ button:disabled {
     display: none;
   }
 }
-
