@@ -12,7 +12,7 @@ interface SidebarItemProps {
 }
 
 export default function SidebarItem({
-  href="",
+  href = "",
   icon,
   label,
   disabled = false,
@@ -22,7 +22,7 @@ export default function SidebarItem({
 
   if (disabled) {
     return (
-      <li className="sidebar--item cursor-not-allowed">
+      <li className="sidebar--item cursor-not-allowed flex">
         {icon} {label}
       </li>
     );
@@ -30,7 +30,7 @@ export default function SidebarItem({
 
   return (
     <Link href={href}>
-      <li className={`sidebar--item ${isActive ? "active" : ""}`}>
+      <li className={`sidebar--item ${isActive ? "active" : ""} flex`}>
         {icon} {label}
       </li>
     </Link>
