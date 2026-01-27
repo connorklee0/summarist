@@ -1,12 +1,15 @@
 "use client";
 
 import { useAudioPlayerContext } from "@/app/context/AudioPlayerContext";
+import TrackInfoSkeleton from "../ui/skeleton/TrackInfoSkeleton";
 import Image from "next/image";
 
 export default function TrackInfo() {
   const { currentTrack } = useAudioPlayerContext();
 
-  if (!currentTrack) return null;
+  if (!currentTrack) {
+    return <TrackInfoSkeleton />;
+  }
 
   return (
     <div className="flex items-center gap-4">
