@@ -1,13 +1,6 @@
-// app/context/audio-player-context.tsx
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useRef,
-} from "react";
+import { createContext, useContext, useState, ReactNode, useRef } from "react";
 
 export interface Track {
   id: string;
