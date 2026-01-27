@@ -38,6 +38,33 @@ export async function getBookById(id: string) {
   if (!res.ok) {
     throw new Error("Failed to fetch book");
   }
-  
+
   return res.json();
+}
+
+export async function searchBooks(query: string) {
+  if (!query.trim()) {
+    return [];
+  }
+
+  try {
+    const response = await fetch(
+      `https://us-central1-summaristt.cloudfunctions.net/getBooksByAuthorOrTitle?search=${encodeURIComponent(
+        query
+      )}`,
+      {
+        next: { revalidate: 1000 },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Search failed: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data || [];
+  } catch (error) {
+    console.error("Error searching books:", error);
+    throw error;
+  }
 }
