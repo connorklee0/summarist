@@ -54,14 +54,14 @@ const Search = () => {
     <header className="bg-white border-b p-4 border-[#ced4d7]">
       <div className="flex justify-end mr-40">
         <div className="relative max-w-md" ref={searchRef}>
-            <input
-              type="search"
-              placeholder="Search for books"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => searchQuery && setShowResults(true)}
-              className="w-80 h-10 px-4 py-2 pr-10 border rounded-lg focus:outline-none bg-[#e6e2e2]"
-            />
+          <input
+            type="search"
+            placeholder="Search for books"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => searchQuery && setShowResults(true)}
+            className="w-80 h-10 px-4 py-2 pr-10 border rounded-lg focus:outline-none bg-[#e5e4e4]"
+          />
           <IoIosSearch className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5" />
 
           {showResults && (
@@ -81,9 +81,7 @@ const Search = () => {
                   ))}
                 </ul>
               ) : (
-                <div className="p-4 text-xl">
-                  No books found
-                </div>
+                <div className="p-4 text-xl">No books found</div>
               )}
             </div>
           )}
