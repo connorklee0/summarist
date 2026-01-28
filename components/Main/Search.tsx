@@ -60,7 +60,7 @@ const Search = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => searchQuery && setShowResults(true)}
-            className="w-80 h-10 px-4 py-2 pr-10 border rounded-lg focus:outline-none bg-[#e5e4e4]"
+            className="w-80 h-10 px-4 py-2 pr-10 border rounded-lg focus:outline-none bg-[#ç]"
           />
           <IoIosSearch className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5" />
 
