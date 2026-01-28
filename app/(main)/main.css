@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+.row {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container {
+  padding: 40px 0;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar--item, .sidebar--item__font-change {
+  padding: 12px 0 12px 24px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 24px;
+}
+
+.sidebar--item__font-change {
+  gap: 20px;
+}
+
+.font-change--active {
+  border-bottom: solid #2bd97c;
+}
+
+/* For You */
+.page--title {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.page--subtitle {
+  margin-bottom: 16px;
+  font-weight: lighter;
+}
+
+/* Book Page */
+.book--btn {
+  background-color: #032b41;
+  color: white;
+  padding: 12px 40px;
+  border-radius: 4px;
+}
+
+/* Player page */
+.summary {
+  max-width: 1070px;
+}

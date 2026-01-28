@@ -7,13 +7,15 @@ import Footer from "@/components/Home/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Nav />
-      <Landing />
-      <Features />
-      <Reviews />
-      <Numbers />
+    <div>
+      <div className="max-w-267.5 w-full mx-auto">
+        <Nav />
+        <Landing />
+        <Features />
+        <Reviews />
+        <Numbers />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }

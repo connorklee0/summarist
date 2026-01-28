@@ -3,11 +3,11 @@
 body {
   max-width: 100%;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -37,7 +37,6 @@ button:disabled {
 }
 
 .row {
-  max-width: 1070px;
   width: 100%;
   margin: 0 auto;
   padding: 0 24px;
@@ -271,7 +270,7 @@ button:disabled {
 }
 
 #footer {
-  background-color: rgb(241 246 244);
+  background-color: #e5e4e4;
 }
 
 .footer__top--wrapper {
@@ -280,6 +279,7 @@ button:disabled {
   justify-content: space-between;
   font-size: 14px;
   margin: 32px auto 64px;
+  max-width: 1280px;
 }
 
 .footer__block {
