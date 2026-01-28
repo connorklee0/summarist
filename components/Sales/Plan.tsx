@@ -55,16 +55,18 @@ const Plan = () => {
           onClick={() => setSelectedPlan("monthly")}
         />
 
-        <div className="text-center flex flex-col gap-2 mt-10">
-          <button className="btn max-w-72 w-full mx-auto">
-            {selectedPlan === "yearly"
-              ? "Start your free 7-day trial"
-              : "Start your first month"}
-          </button>
-          <div className="text-xs text-gray-500">
-            {selectedPlan === "yearly"
-              ? "Cancel your trial at any time before it ends, and you won't be charged."
-              : "30-day money back guarantee, no questions asked."}
+        <div className="sticky bottom-0 bg-white">
+          <div className="text-center flex flex-col gap-2 py-8">
+            <button className="btn max-w-72 w-full mx-auto">
+              {selectedPlan === "yearly"
+                ? "Start your free 7-day trial"
+                : "Start your first month"}
+            </button>
+            <div className="text-xs text-gray-500">
+              {selectedPlan === "yearly"
+                ? "Cancel your trial at any time before it ends, and you won't be charged."
+                : "30-day money back guarantee, no questions asked."}
+            </div>
           </div>
         </div>
       </div>
