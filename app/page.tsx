@@ -1,11 +1,17 @@
+"use client";
+
 import Nav from "@/components/Home/Nav";
 import Landing from "@/components/Home/Landing";
 import Features from "@/components/Home/Features";
 import Reviews from "@/components/Home/Reviews";
 import Numbers from "@/components/Home/Numbers";
 import Footer from "@/components/Home/Footer";
+import { useRouteProtection } from "./hooks/useRouteProtection";
 
 export default function Home() {
+  const { loading } = useRouteProtection();
+  if (loading) return null;
+
   return (
     <div>
       <div className="max-w-267.5 w-full mx-auto">

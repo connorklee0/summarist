@@ -9,6 +9,10 @@ import { auth, db } from "@/firebase";
 
 export type PlanType = "basic" | "premium" | "premium-plus";
 
+export const hasPremiumAccess = (plan: PlanType): boolean => {
+  return plan === "premium" || plan === "premium-plus";
+};
+
 export interface UserData {
   uid: string;
   email: string;
