@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import styles from "./LoginModal.module.css";
+import { loginUser, loginAsGuest } from "@/app/lib/api/authService";
+import { useRouter } from "next/navigation";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -12,25 +14,45 @@ interface LoginModalProps {
 export default function LoginModal({
   isOpen,
   onClose,
-  onSubmit,
+  onSignUpClick,
 }: LoginModalProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError("");
 
     try {
-      if (onSubmit) {
-        await onSubmit(email, password);
-      }
+      await loginUser(email, password);
       setEmail("");
       setPassword("");
       onClose();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Login failed:", error);
+      setError(
+        error.message || "Failed to login. Please check your credentials."
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGuestLogin = async () => {
+    setIsLoading(true);
+    setError("");
+
+    try {
+      await loginAsGuest();
+      onClose();
+      router.push("/for-you");
+    } catch (error: any) {
+      console.error("Guest login failed:", error);
+      setError("Failed to login as guest. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -47,11 +69,19 @@ export default function LoginModal({
 
         <h2 className={styles.title}>Log in to Summarist</h2>
 
-        <button className={styles.guestButton}>Login as a Guest</button>
+        <button
+          className={styles.guestButton}
+          onClick={handleGuestLogin}
+          disabled={isLoading}
+        >
+          {isLoading ? "Logging in..." : "Login as a Guest"}
+        </button>
 
         <div className={styles.separator}>
           <span>or</span>
         </div>
+
+        {error && <div className={styles.error}>{error}</div>}
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
@@ -95,9 +125,9 @@ export default function LoginModal({
 
         <p className={styles.footer}>
           Don't have an account?{" "}
-          <a href="#signup" className={styles.link}>
+          <button onClick={onSignUpClick} className={styles.link}>
             Sign up
-          </a>
+          </button>
         </p>
       </div>
     </div>

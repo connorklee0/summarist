@@ -62,9 +62,10 @@
 .separator {
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid #312f2f;
+  border-bottom: 1px solid #989595;
   line-height: 0.1em;
   margin: 10px 0 20px;
+  color: #989595;
 }
 
 .separator span {
