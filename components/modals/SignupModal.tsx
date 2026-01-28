@@ -45,13 +45,7 @@ export default function LoginModal({
           <IoCloseSharp size={24} />
         </button>
 
-        <h2 className={styles.title}>Log in to Summarist</h2>
-
-        <button className={styles.guestButton}>Login as a Guest</button>
-
-        <div className={styles.separator}>
-          <span>or</span>
-        </div>
+        <h2 className={styles.title}>Sign up to Summarist</h2>
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
@@ -94,9 +88,8 @@ export default function LoginModal({
         </form>
 
         <p className={styles.footer}>
-          Don't have an account?{" "}
-          <a href="#signup" className={styles.link}>
-            Sign up
+          <a href="#signin" className={styles.link}>
+            Already have an account?
           </a>
         </p>
       </div>
