@@ -1,12 +1,14 @@
 import Footer from "@/components/Home/Footer";
 import Banner from "@/components/Sales/Banner";
-import Plan from "@/components/Sales/Plan";
+import Dropdown from "@/components/Sales/Dropdown";
+import Plan from "@/components/Sales/PricingPlan";
 
 const Sales = () => {
   return (
-    <div className="flex flex-col gap-15">
+    <div className="flex flex-col">
       <Banner />
       <Plan />
+      <Dropdown />
       <Footer />
     </div>
   );

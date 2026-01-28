@@ -13,7 +13,7 @@ const Plan = () => {
 
   return (
     <div>
-      <div className="flex gap-16 justify-center">
+      <div className="flex gap-16 justify-center mt-15">
         <div className="text-center items-center flex flex-col">
           <IoDocumentText className="text-6xl" />
           <span className="font-bold">Key Ideas in a few minutes</span> with
