@@ -5,11 +5,13 @@ import { IoDocumentText } from "react-icons/io5";
 import { RiPlantFill } from "react-icons/ri";
 import { FaHandshake } from "react-icons/fa";
 import PricingCard from "../ui/PricingCard";
+import { useModal } from "@/app/context/ModalContext";
 
 const Plan = () => {
   const [selectedPlan, setSelectedPlan] = useState<"yearly" | "monthly">(
     "yearly"
   );
+  const { openLoginModal } = useModal();
 
   return (
     <div>
@@ -57,7 +59,10 @@ const Plan = () => {
 
         <div className="sticky bottom-0 bg-white">
           <div className="text-center flex flex-col gap-2 py-8">
-            <button className="btn max-w-72 w-full mx-auto">
+            <button
+              className="btn max-w-72 w-full mx-auto"
+              onClick={openLoginModal}
+            >
               {selectedPlan === "yearly"
                 ? "Start your free 7-day trial"
                 : "Start your first month"}

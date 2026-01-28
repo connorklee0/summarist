@@ -12,7 +12,8 @@
 }
 
 /* Sidebar */
-.sidebar--item, .sidebar--item__font-change {
+.sidebar--item,
+.sidebar--item__font-change {
   padding: 12px 0 12px 24px;
   display: flex;
   gap: 8px;
@@ -36,7 +37,6 @@
 }
 
 .page--subtitle {
-  margin-bottom: 16px;
   font-weight: lighter;
 }
 
@@ -51,4 +51,5 @@
 /* Player page */
 .summary {
   max-width: 1070px;
+  width: 1070px;
 }

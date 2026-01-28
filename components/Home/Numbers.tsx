@@ -37,7 +37,7 @@ const Numbers = () => {
               </div>
               <div className="numbers__title">97%</div>
               <div className="numbers__sub--title">
-                Of Summarist members create a better reading habit
+                Summarist members create a better reading habit
               </div>
             </div>
           </div>

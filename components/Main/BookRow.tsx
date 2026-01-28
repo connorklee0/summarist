@@ -15,6 +15,7 @@ export default async function DisplayBooks({ data }) {
           author={book.author}
           subtitle={book.subTitle}
           rating={book.averageRating}
+          subscriptionRequired={book.subscriptionRequired}
         />
       ))}
     </div>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ModalProvider from "@/app/context/ModalContext";
+import { AuthProvider } from "./context/AuthContext";
 
 export const metadata: Metadata = {
   title: "Summarist",
@@ -13,7 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="">{children}</body>
+      <body className="">
+        <AuthProvider>
+          <ModalProvider>{children}</ModalProvider>
+        </AuthProvider>
+      </body>
     </html>
   );
 }

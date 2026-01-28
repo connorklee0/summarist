@@ -36,7 +36,7 @@ const Features = () => {
     <section id="features">
       <div className="container">
         <div className="row">
-          <div className="section__title">Understand books in few minutes</div>
+          <div className="section__title">Understand books in a few minutes</div>
           <div className="grid grid-cols-3 gap-10 mb-24 max-md:grid">
             <div className="features">
               <div className="features__icon">
