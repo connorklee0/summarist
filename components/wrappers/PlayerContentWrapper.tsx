@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import { useAudioPlayerContext } from "@/app/context/AudioPlayerContext";
 import { useFontSize } from "@/app/context/FontSizeContext";
+import { useAuth } from "@/app/context/AuthContext";
+import LoginDisplay from "../ui/LoginDisplay";
 
 interface PlayerContentWrapperProps {
   book: any;
@@ -13,6 +15,7 @@ export default function PlayerContentWrapper({
 }: PlayerContentWrapperProps) {
   const { fontSize } = useFontSize();
   const { setCurrentTrack, setIsPlaying } = useAudioPlayerContext();
+  const { userData } = useAuth();
 
   useEffect(() => {
     setCurrentTrack({
@@ -34,9 +37,13 @@ export default function PlayerContentWrapper({
       <div className="row summary">
         <p className="font-bold text-2xl">{book.title}</p>
         <div className="border-b border-[#ced4d7] my-4"></div>
-        <div className={`py-4 whitespace-pre-line ${fontSize}`}>
-          {book.summary}
-        </div>
+        {!userData || userData.plan === "basic" ? (
+          <LoginDisplay description="Log in to your account to read and listen to the book" />
+        ) : (
+          <div className={`py-4 whitespace-pre-line ${fontSize}`}>
+            {book.summary}
+          </div>
+        )}
       </div>
     </div>
   );
