@@ -3,7 +3,6 @@ import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import styles from "./LoginModal.module.css";
 import { loginUser, loginAsGuest } from "@/app/lib/api/authService";
-import { useRouter } from "next/navigation";
 import { useModal } from "@/app/context/ModalContext";
 
 interface LoginModalProps {
@@ -17,7 +16,6 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const router = useRouter();
   const { openSignUpModal } = useModal();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,7 +45,6 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
     try {
       await loginAsGuest();
       onClose();
-      router.push("/for-you");
     } catch (error: any) {
       console.error("Guest login failed:", error);
       setError("Failed to login as guest. Please try again.");
