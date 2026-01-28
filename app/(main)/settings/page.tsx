@@ -3,7 +3,7 @@
 import { useAuth } from "@/app/context/AuthContext";
 import Login from "@/public/main/login.png";
 import Image from "next/image";
-import { useModal } from "@/app/hooks/useModal";
+import { useModal } from "@/app/context/ModalContext";
 import { useRouter } from "next/navigation";
 
 const page = () => {

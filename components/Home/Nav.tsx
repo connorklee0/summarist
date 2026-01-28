@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Logo from "../../public/home/logo.png";
-import { useModal } from "../../app/hooks/useModal";
+import { useModal } from "@/app/context/ModalContext";
 
 const Nav = () => {
   const { openLoginModal } = useModal();

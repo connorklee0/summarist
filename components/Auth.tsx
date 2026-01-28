@@ -1,5 +1,5 @@
 "use client";
-import { useModal } from "../app/hooks/useModal";
+import { useModal } from "@/app/context/ModalContext";
 
 const Auth = () => {
   const { openLoginModal } = useModal();

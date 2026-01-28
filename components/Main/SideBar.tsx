@@ -12,7 +12,7 @@ import SidebarItem from "../ui/SidebarItem";
 import FontChange from "../ui/FontChange";
 import { logoutUser } from "@/app/lib/api/authService";
 import { useAuth } from "@/app/context/AuthContext";
-import { useModal } from "@/app/hooks/useModal";
+import { useModal } from "@/app/context/ModalContext";
 
 const SideBar = () => {
   const pathname = usePathname();

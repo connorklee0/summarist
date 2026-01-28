@@ -5,7 +5,7 @@ import { IoDocumentText } from "react-icons/io5";
 import { RiPlantFill } from "react-icons/ri";
 import { FaHandshake } from "react-icons/fa";
 import PricingCard from "../ui/PricingCard";
-import { useModal } from "../../app/hooks/useModal";
+import { useModal } from "@/app/context/ModalContext";
 
 const Plan = () => {
   const [selectedPlan, setSelectedPlan] = useState<"yearly" | "monthly">(

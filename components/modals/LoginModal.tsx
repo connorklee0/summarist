@@ -4,7 +4,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import styles from "./LoginModal.module.css";
 import { loginUser, loginAsGuest } from "@/app/lib/api/authService";
 import { useRouter } from "next/navigation";
-import { useModal } from "@/app/hooks/useModal";
+import { useModal } from "@/app/context/ModalContext";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -12,10 +12,7 @@ interface LoginModalProps {
   onSignUpClick: () => void;
 }
 
-export default function LoginModal({
-  isOpen,
-  onClose,
-}: LoginModalProps) {
+export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);

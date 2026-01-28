@@ -39,7 +39,7 @@ const BookDisplay = ({
               "Premium"}
           </div>
         </div>
-        <div className="relative w-40 h-40 px-4">
+        <div className="relative w-40 h-40 px-4 mx-auto">
           <Image src={image} alt={title} fill />
         </div>
         <p className="font-bold text-[20px]">{title}</p>

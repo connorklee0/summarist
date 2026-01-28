@@ -3,7 +3,7 @@ import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import styles from "./LoginModal.module.css";
 import { signUpUser, PlanType } from "@/app/lib/api/authService";
-import { useModal } from "@/app/hooks/useModal";
+import { useModal } from "@/app/context/ModalContext";
 
 interface SignUpModalProps {
   isOpen: boolean;
