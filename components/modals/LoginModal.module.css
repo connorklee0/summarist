@@ -149,3 +149,7 @@
 .link:hover {
   color: #0250d0;
 }
+
+.error {
+  color: red;
+}

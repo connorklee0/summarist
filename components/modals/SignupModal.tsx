@@ -80,7 +80,7 @@ export default function SignUpModal({
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              placeholder="you@example.com"
+              placeholder="Email Address"
               className={styles.input}
             />
           </div>
@@ -96,7 +96,7 @@ export default function SignUpModal({
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
-              placeholder="••••••••"
+              placeholder="Password"
               className={styles.input}
             />
           </div>
