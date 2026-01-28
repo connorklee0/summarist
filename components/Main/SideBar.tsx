@@ -10,14 +10,11 @@ import { TbHelp } from "react-icons/tb";
 import { RxExit, RxBookmark } from "react-icons/rx";
 import SidebarItem from "../ui/SidebarItem";
 import FontChange from "../ui/FontChange";
+import { logoutUser } from "@/app/lib/api/authService";
 
 const SideBar = () => {
   const pathname = usePathname();
   const isPlayerPage = pathname.startsWith("/player");
-
-  function logout() {
-    return;
-  }
 
   return (
     <div className="w-50 min-w-50 text-black bg-[#e5e4e4]">
@@ -68,7 +65,7 @@ const SideBar = () => {
               label="Help & Support"
               disabled={true}
             />
-            <div onClick={logout()}>
+            <div onClick={() => logoutUser()}>
               <SidebarItem href="" icon={<RxExit />} label="Logout" />
             </div>
           </ul>

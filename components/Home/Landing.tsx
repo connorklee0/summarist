@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import LandingImg from "../../public/home/landing.png";
-import { useModal } from "../modals/useModal";
+import { useModal } from "../../app/hooks/useModal";
 
 const Landing = () => {
   const { openLoginModal } = useModal();

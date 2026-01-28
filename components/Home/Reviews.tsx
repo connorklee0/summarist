@@ -1,6 +1,6 @@
 "use client";
 import { BsStarFill } from "react-icons/bs";
-import { useModal } from "../modals/useModal";
+import { useModal } from "../../app/hooks/useModal";
 
 const Reviews = () => {
   const { openLoginModal } = useModal();

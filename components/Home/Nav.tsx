@@ -1,11 +1,10 @@
-'use client'
+"use client";
 import Image from "next/image";
 import Logo from "../../public/home/logo.png";
-import { useModal } from "../modals/useModal";
-
+import { useModal } from "../../app/hooks/useModal";
 
 const Nav = () => {
-  const { openLoginModal } = useModal()
+  const { openLoginModal } = useModal();
   return (
     <nav className="h-20 w-full flex justify-center">
       <div className="flex justify-between items-center w-full h-full px-6 mx-auto">
