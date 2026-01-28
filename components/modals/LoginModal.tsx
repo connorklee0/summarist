@@ -15,7 +15,6 @@ interface LoginModalProps {
 export default function LoginModal({
   isOpen,
   onClose,
-  onSignUpClick,
 }: LoginModalProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
