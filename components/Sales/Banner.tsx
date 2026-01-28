@@ -13,7 +13,7 @@ const Banner = () => {
           Turn ordinary moments into amazing learning opportunities
         </div>
       </div>
-      <div className="flex justify-center max-w-[340px] mx-auto rounded-t-[180px] overflow-hidden">
+      <div className="flex justify-center max-w-65 mx-auto rounded-t-[180px] overflow-hidden">
         <Image src={Sales} alt="Sales page image" />
       </div>
     </div>
