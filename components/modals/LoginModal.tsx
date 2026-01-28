@@ -4,11 +4,12 @@ import { IoCloseSharp } from "react-icons/io5";
 import styles from "./LoginModal.module.css";
 import { loginUser, loginAsGuest } from "@/app/lib/api/authService";
 import { useRouter } from "next/navigation";
+import { useModal } from "@/app/hooks/useModal";
 
 interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit?: (email: string, password: string) => void;
+  onSignUpClick: () => void;
 }
 
 export default function LoginModal({
@@ -21,6 +22,7 @@ export default function LoginModal({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
+  const { openSignUpModal } = useModal();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -125,7 +127,7 @@ export default function LoginModal({
 
         <p className={styles.footer}>
           Don't have an account?{" "}
-          <button onClick={onSignUpClick} className={styles.link}>
+          <button onClick={openSignUpModal} className={styles.link}>
             Sign up
           </button>
         </p>

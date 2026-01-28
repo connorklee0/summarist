@@ -11,10 +11,14 @@ import { RxExit, RxBookmark } from "react-icons/rx";
 import SidebarItem from "../ui/SidebarItem";
 import FontChange from "../ui/FontChange";
 import { logoutUser } from "@/app/lib/api/authService";
+import { useAuth } from "@/app/context/AuthContext";
+import { useModal } from "@/app/hooks/useModal";
 
 const SideBar = () => {
   const pathname = usePathname();
   const isPlayerPage = pathname.startsWith("/player");
+  const { user, userData } = useAuth();
+  const { openLoginModal } = useModal();
 
   return (
     <div className="w-50 min-w-50 text-black bg-[#e5e4e4]">
@@ -65,8 +69,18 @@ const SideBar = () => {
               label="Help & Support"
               disabled={true}
             />
-            <div onClick={() => logoutUser()}>
-              <SidebarItem href="" icon={<RxExit />} label="Logout" />
+            <div
+              onClick={() => {
+                {
+                  !user || !userData ? openLoginModal() : logoutUser();
+                }
+              }}
+            >
+              <SidebarItem
+                href=""
+                icon={<RxExit />}
+                label={!user || !userData ? "Login" : "Logout"}
+              />
             </div>
           </ul>
         </div>
