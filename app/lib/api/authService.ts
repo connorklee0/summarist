@@ -3,6 +3,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   User,
+  GoogleAuthProvider,
+  signInWithPopup
 } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "@/firebase";
@@ -18,6 +20,33 @@ export interface UserData {
   email: string;
   plan: PlanType;
 }
+
+// Login with Google
+export const loginWithGoogle = async (plan: PlanType = "basic"): Promise<UserData> => {
+  const provider = new GoogleAuthProvider();
+  
+  const userCredential = await signInWithPopup(auth, provider);
+  const user = userCredential.user;
+  
+  // Check if user document already exists
+  const existingUser = await getUserData(user.uid);
+  
+  if (existingUser) {
+    // User already exists, return their data
+    return existingUser;
+  }
+  
+  // New user - create document in Firestore
+  const userData: UserData = {
+    uid: user.uid,
+    email: user.email || "",
+    plan,
+  };
+  
+  await setDoc(doc(db, "users", user.uid), userData);
+  
+  return userData;
+};
 
 // Sign up new user
 export const signUpUser = async (
