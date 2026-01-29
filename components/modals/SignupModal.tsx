@@ -1,8 +1,13 @@
 "use client";
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
+import { FcGoogle } from "react-icons/fc";
 import styles from "./LoginModal.module.css";
-import { signUpUser, PlanType } from "@/app/lib/api/authService";
+import {
+  signUpUser,
+  PlanType,
+  loginWithGoogle,
+} from "@/app/lib/api/authService";
 import { useModal } from "@/app/context/ModalContext";
 
 interface SignUpModalProps {
@@ -56,6 +61,27 @@ export default function SignUpModal({
     }
   };
 
+  const handleGoogleLogin = async () => {
+    setIsLoading(true);
+    setError("");
+
+    try {
+      await loginWithGoogle();
+      onClose();
+    } catch (error: any) {
+      console.error("Google login failed:", error);
+      if (error.code === "auth/popup-closed-by-user") {
+        setError("Sign-in was cancelled.");
+      } else if (error.code === "auth/popup-blocked") {
+        setError("Pop-up was blocked. Please allow pop-ups for this site.");
+      } else {
+        setError("Failed to login with Google. Please try again.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -66,6 +92,21 @@ export default function SignUpModal({
         </button>
 
         <h2 className={styles.title}>Sign up to Summarist</h2>
+
+        <button
+          className={styles.googleButton}
+          onClick={handleGoogleLogin}
+          disabled={isLoading}
+        >
+          <div className="text-3xl bg-white rounded absolute left-1">
+            <FcGoogle />
+          </div>
+          {isLoading ? "Logging in..." : "Login with Google"}
+        </button>
+
+        <div className={styles.separator}>
+          <span>or</span>
+        </div>
 
         {error && <div className={styles.error}>{error}</div>}
 

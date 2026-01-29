@@ -1,8 +1,13 @@
 "use client";
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
+import { FcGoogle } from "react-icons/fc";
 import styles from "./LoginModal.module.css";
-import { loginUser, loginAsGuest } from "@/app/lib/api/authService";
+import {
+  loginUser,
+  loginAsGuest,
+  loginWithGoogle,
+} from "@/app/lib/api/authService";
 import { useModal } from "@/app/context/ModalContext";
 
 interface LoginModalProps {
@@ -53,6 +58,27 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    setIsLoading(true);
+    setError("");
+
+    try {
+      await loginWithGoogle();
+      onClose();
+    } catch (error: any) {
+      console.error("Google login failed:", error);
+      if (error.code === "auth/popup-closed-by-user") {
+        setError("Sign-in was cancelled.");
+      } else if (error.code === "auth/popup-blocked") {
+        setError("Pop-up was blocked. Please allow pop-ups for this site.");
+      } else {
+        setError("Failed to login with Google. Please try again.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -70,6 +96,21 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
           disabled={isLoading}
         >
           {isLoading ? "Logging in..." : "Login as a Guest"}
+        </button>
+
+        <div className={styles.separator}>
+          <span>or</span>
+        </div>
+
+        <button
+          className={styles.googleButton}
+          onClick={handleGoogleLogin}
+          disabled={isLoading}
+        >
+          <div className="text-3xl bg-white rounded absolute left-1">
+            <FcGoogle />
+          </div>
+          {isLoading ? "Logging in..." : "Login with Google"}
         </button>
 
         <div className={styles.separator}>
