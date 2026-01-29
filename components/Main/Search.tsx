@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { IoIosSearch } from "react-icons/io";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { searchBooks } from "@/app/lib/api/books";
 import SearchResultItem from "../ui/SearchResultItem";
 
@@ -52,7 +53,7 @@ const Search = () => {
 
   return (
     <header className="bg-white border-b p-4 border-[#ced4d7]">
-      <div className="flex justify-end mr-40">
+      <div className="flex md:justify-end mr-40 gap-6 items-center">
         <div className="relative max-w-md" ref={searchRef}>
           <input
             type="search"
@@ -86,6 +87,7 @@ const Search = () => {
             </div>
           )}
         </div>
+        <RxHamburgerMenu className="text-3xl md:hidden" />
       </div>
     </header>
   );

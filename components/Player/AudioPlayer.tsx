@@ -26,7 +26,7 @@ export default function AudioPlayer() {
       )}
 
       <div className="w-full py-4 mx-auto">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between max-md:flex-col">
           <TrackInfo />
           <Controls />
           <ProgressBar />
