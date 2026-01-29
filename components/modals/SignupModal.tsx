@@ -101,7 +101,7 @@ export default function SignUpModal({
           <div className="text-3xl bg-white rounded absolute left-1">
             <FcGoogle />
           </div>
-          {isLoading ? "Logging in..." : "Login with Google"}
+          {isLoading ? "Logging in..." : "Signup with Google"}
         </button>
 
         <div className={styles.separator}>
