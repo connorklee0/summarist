@@ -26,7 +26,7 @@ const SideBar = () => {
     <>
       {isSidebarOpen && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-[#2a2727] opacity-70 z-40"
+          className="fixed top-0 left-0 w-full h-full bg-[#2a2727] opacity-70 z-40 md:hidden"
           onClick={toggleSidebar}
         ></div>
       )}
@@ -39,8 +39,8 @@ const SideBar = () => {
           <Image src={Logo} alt="Logo" />
         </div>
         <div
-          className={`flex flex-col justify-between py-8 overflow-auto max-md:pb-40 h-[calc(100vh-80px)] ${
-            isPlayerPage && "pb-25"
+          className={`flex flex-col justify-between py-8 overflow-auto  h-[calc(100vh-80px)] ${
+            isPlayerPage && "pb-25 max-md:pb-40"
           }`}
         >
           <div>

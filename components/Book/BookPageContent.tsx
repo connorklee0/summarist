@@ -73,7 +73,10 @@ export default function BookPageContent({
   const handleReadClick = () => {
     if (!userData) {
       openLoginModal();
-    } else if (userData.plan === "basic") {
+    } else if (
+      userData.plan === "basic" &&
+      book.subscriptionRequired === true
+    ) {
       router.push("/choose-plan");
     } else {
       router.push(`/player/${book.id}`);

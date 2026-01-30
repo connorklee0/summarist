@@ -14,9 +14,7 @@ export default function MainLayout({
     <SidebarProvider>
       <FontSizeProvider>
         <div className="flex min-h-screen w-full">
-          <div className="fixed left-0 top-0 h-screen w-64 z-100">
-            <SideBar />
-          </div>
+          <SideBar />
 
           <div className="flex-1 md:ml-64 ">
             <Search />
