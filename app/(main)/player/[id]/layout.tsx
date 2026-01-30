@@ -8,7 +8,7 @@ export default function PlayerLayout({
 }) {
   return (
     <AudioPlayerProvider>
-      <div className="pb-15 ml-30">{children}</div>
+      <div className="pb-15 md:ml-30 max-md:pb-30">{children}</div>
       <AudioPlayer />
     </AudioPlayerProvider>
   );

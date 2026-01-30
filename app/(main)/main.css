@@ -46,10 +46,10 @@
   color: white;
   padding: 12px 40px;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 /* Player page */
 .summary {
   max-width: 1070px;
-  width: 1070px;
 }

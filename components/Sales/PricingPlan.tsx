@@ -50,7 +50,7 @@ const Plan = () => {
 
   return (
     <div>
-      <div className="flex gap-16 justify-center mt-15">
+      <div className="flex gap-16 justify-center mt-15 max-md:flex-col">
         <div className="text-center items-center flex flex-col">
           <IoDocumentText className="text-6xl" />
           <span className="font-bold">Key Ideas in a few minutes</span> with
@@ -68,7 +68,7 @@ const Plan = () => {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center w-200 mx-auto">
+      <div className="flex flex-col justify-center md:w-200 mx-auto max-md:mx-5">
         <div className="text-center font-bold text-3xl mt-20 mb-10">
           Choose the plan that fits you
         </div>

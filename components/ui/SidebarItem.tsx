@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
+import { useSidebar } from "@/app/context/SideBarContext";
 
 interface SidebarItemProps {
   href?: string;
@@ -19,6 +20,7 @@ export default function SidebarItem({
 }: SidebarItemProps) {
   const pathname = usePathname();
   const isActive = pathname === href;
+  const { toggleSidebar } = useSidebar();
 
   if (disabled) {
     return (
@@ -29,7 +31,7 @@ export default function SidebarItem({
   }
 
   return (
-    <Link href={href}>
+    <Link href={href} onClick={toggleSidebar}>
       <li className={`sidebar--item ${isActive ? "active" : ""} flex`}>
         {icon} {label}
       </li>
