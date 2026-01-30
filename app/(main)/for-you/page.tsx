@@ -4,12 +4,14 @@ import SelectedBookSkeleton from "@/components/ui/skeleton/SelectedBookSkeleton"
 import RecommendedBooksWrapper from "@/components/wrappers/RecommendedBooksWrapper";
 import BookRowSkeleton from "@/components/ui/skeleton/BookRowSkeleton";
 import SuggestedBooksWrapper from "@/components/wrappers/SuggestedBooksWrapper";
+import SubscriptionChecker from "@/components/Sales/SubscriptionChecker";
 
 async function page() {
   return (
     <div className="container">
       <div className="row">
         <div>
+          <SubscriptionChecker />
           <div className="page--title">Selected just for you</div>
           <Suspense fallback={<SelectedBookSkeleton />}>
             <SelectedBookWrapper />
