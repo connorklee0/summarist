@@ -5,6 +5,7 @@ import { IoIosSearch } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { searchBooks } from "@/app/lib/api/books";
 import SearchResultItem from "../ui/SearchResultItem";
+import { useSidebar } from "@/app/context/SideBarContext";
 
 interface SearchResult {
   id: string;
@@ -21,6 +22,7 @@ const Search = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const { toggleSidebar } = useSidebar();
 
   useEffect(() => {
     if (!searchQuery.trim()) {
@@ -53,7 +55,7 @@ const Search = () => {
 
   return (
     <header className="bg-white border-b p-4 border-[#ced4d7]">
-      <div className="flex md:justify-end mr-40 gap-6 items-center">
+      <div className="flex md:justify-end md:mr-40 gap-6 items-center ">
         <div className="relative max-w-md" ref={searchRef}>
           <input
             type="search"
@@ -87,7 +89,9 @@ const Search = () => {
             </div>
           )}
         </div>
-        <RxHamburgerMenu className="text-3xl md:hidden" />
+        <button onClick={toggleSidebar}>
+          <RxHamburgerMenu className="text-3xl md:hidden" />
+        </button>
       </div>
     </header>
   );

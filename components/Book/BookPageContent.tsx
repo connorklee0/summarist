@@ -82,7 +82,7 @@ export default function BookPageContent({
 
   return (
     <div className="container">
-      <div className="row flex flex-col md:flex-row gap-6">
+      <div className="row flex flex-col md:flex-row gap-6 max-md:items-center">
         <div className="w-70 h-70 relative md:hidden">
           <Image src={book.imageLink} alt={book.title} fill />
         </div>
@@ -111,18 +111,21 @@ export default function BookPageContent({
           <div className="border-b border-[#ced4d7]"></div>
 
           <div className="flex gap-4">
-            <button className="book--btn">
-              <a className="flex items-center gap-2" onClick={handleReadClick}>
-                <LuBookOpenText className="text-xl" />
-                Read
-              </a>
-            </button>
-            <button className="book--btn">
-              <a className="flex items-center gap-2" onClick={handleReadClick}>
-                <HiOutlineMicrophone className="text-xl" />
-                Listen
-              </a>
-            </button>
+            <a
+              className="flex items-center gap-2 book--btn"
+              onClick={handleReadClick}
+            >
+              <LuBookOpenText className="text-xl" />
+              Read
+            </a>
+
+            <a
+              className="flex items-center gap-2 book--btn"
+              onClick={handleReadClick}
+            >
+              <HiOutlineMicrophone className="text-xl" />
+              Listen
+            </a>
           </div>
 
           <div className="text-[#0365f2] flex gap-2 items-center cursor-not-allowed">

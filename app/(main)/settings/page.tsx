@@ -9,12 +9,12 @@ const page = () => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col gap-5 w-300 mt-10">
+    <div className="flex flex-col gap-5 md:w-300 mt-10 max-md:mx-10">
       <div className="text-3xl font-bold">Settings</div>
       <div className="border-b border-[#ced4d7]"></div>
 
       {!user || !userData ? (
-        <LoginDisplay description="Log in to your account to see your details"/>
+        <LoginDisplay description="Log in to your account to see your details" />
       ) : (
         <>
           <div>

@@ -13,79 +13,93 @@ import FontChange from "../ui/FontChange";
 import { logoutUser } from "@/app/lib/api/authService";
 import { useAuth } from "@/app/context/AuthContext";
 import { useModal } from "@/app/context/ModalContext";
+import { useSidebar } from "@/app/context/SideBarContext";
 
 const SideBar = () => {
   const pathname = usePathname();
   const isPlayerPage = pathname.startsWith("/player");
   const { user, userData } = useAuth();
   const { openLoginModal } = useModal();
+  const { isSidebarOpen, toggleSidebar } = useSidebar();
 
   return (
-    <div className="w-50 min-w-50 text-black bg-[#e5e4e4]">
-      <div className="max-w-40 h-15 mx-auto pt-5">
-        <Image src={Logo} alt="Logo" />
-      </div>
+    <>
+      {isSidebarOpen && (
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-[#2a2727] opacity-70 z-40"
+          onClick={toggleSidebar}
+        ></div>
+      )}
       <div
-        className={`flex flex-col justify-between py-8 overflow-auto h-[calc(100vh-80px)] ${
-          isPlayerPage && "pb-25"
+        className={`fixed top-0 left-0 w-50 min-w-50 text-black bg-[#e5e4e4] transform transition-transform duration-300 ease-in-out z-60 ${
+          !isSidebarOpen && "max-md:-translate-x-full"
         }`}
       >
-        <div>
-          <ul>
-            <SidebarItem
-              href="/for-you"
-              icon={<AiOutlineHome />}
-              label="For You"
-              disabled={false}
-            />
-            <SidebarItem
-              href="/library"
-              icon={<RxBookmark />}
-              label="My Library"
-              disabled={true}
-            />
-            <SidebarItem
-              icon={<RiBallPenLine />}
-              label="Highlights"
-              disabled={true}
-            />
-            <SidebarItem
-              icon={<IoIosSearch />}
-              label="Search"
-              disabled={true}
-            />
-            {isPlayerPage && <FontChange />}
-          </ul>
+        <div className="max-w-40 h-15 mx-auto pt-5">
+          <Image src={Logo} alt="Logo" />
         </div>
-        <div>
-          <ul>
-            <SidebarItem
-              href="/settings"
-              icon={<AiOutlineSetting />}
-              label="Settings"
-            />
-            <SidebarItem
-              icon={<TbHelp />}
-              label="Help & Support"
-              disabled={true}
-            />
-            <div
-              onClick={() => {
-                {
-                  !user || !userData ? openLoginModal() : logoutUser();
-                }
-              }}
-            >
+        <div
+          className={`flex flex-col justify-between py-8 overflow-auto h-[calc(100vh-80px)] ${
+            isPlayerPage && "pb-25"
+          }`}
+        >
+          <div>
+            <ul>
               <SidebarItem
-                href=""
-                icon={<RxExit />}
-                label={!user || !userData ? "Login" : "Logout"}
+                href="/for-you"
+                icon={<AiOutlineHome />}
+                label="For You"
+                disabled={false}
               />
-            </div>
-          </ul>
+              <SidebarItem
+                href="/library"
+                icon={<RxBookmark />}
+                label="My Library"
+                disabled={true}
+              />
+              <SidebarItem
+                icon={<RiBallPenLine />}
+                label="Highlights"
+                disabled={true}
+              />
+              <SidebarItem
+                icon={<IoIosSearch />}
+                label="Search"
+                disabled={true}
+              />
+              {isPlayerPage && <FontChange />}
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <SidebarItem
+                href="/settings"
+                icon={<AiOutlineSetting />}
+                label="Settings"
+              />
+              <SidebarItem
+                icon={<TbHelp />}
+                label="Help & Support"
+                disabled={true}
+              />
+              <div
+                onClick={() => {
+                  {
+                    !user || !userData ? openLoginModal() : logoutUser();
+                  }
+                }}
+              >
+                <SidebarItem
+                  href=""
+                  icon={<RxExit />}
+                  label={!user || !userData ? "Login" : "Logout"}
+                />
+              </div>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
