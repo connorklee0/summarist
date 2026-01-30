@@ -30,6 +30,14 @@ export interface CheckoutSessionData {
   trial_period_days?: number;
 }
 
+export interface Subscription {
+  id: string;
+  status?: string;
+  role?: string;
+  metadata?: Record<string, string>;
+  [key: string]: unknown;
+}
+
 /**
  * Ensures customer document exists in Firestore
  */
@@ -117,7 +125,9 @@ export const createCheckoutSession = async (
 /**
  * Gets the user's active subscriptions
  */
-export const getUserSubscriptions = async (userId: string) => {
+export const getUserSubscriptions = async (
+  userId: string
+): Promise<Subscription[]> => {
   const subscriptionsRef = collection(db, "customers", userId, "subscriptions");
   const q = query(
     subscriptionsRef,
@@ -141,7 +151,7 @@ export const getUserSubscriptions = async (userId: string) => {
  */
 export const subscribeToUserSubscriptions = (
   userId: string,
-  callback: (subscriptions: any[]) => void
+  callback: (subscriptions: Subscription[]) => void
 ) => {
   const subscriptionsRef = collection(db, "customers", userId, "subscriptions");
   const q = query(

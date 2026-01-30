@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <nav className="h-20 w-full flex justify-center">
       <div className="flex justify-between items-center w-full h-full px-6 mx-auto">
-        <figure className="max-w-[200px] w-full">
+        <figure className="max-w-50 w-full">
           <Image className="w-full h-full" src={Logo} alt="logo" />
         </figure>
         <ul className="flex gap-6">

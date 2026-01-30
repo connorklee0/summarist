@@ -19,9 +19,9 @@ export default function Controls() {
       setTimeProgress(currentTime);
       progressBarRef.current.value = currentTime.toString();
 
+      const maxValue = parseFloat(progressBarRef.current.max) || 100;
       const progressPercent =
-        (progressBarRef.current.valueAsNumber / progressBarRef.current.max) *
-        100;
+        (progressBarRef.current.valueAsNumber / maxValue) * 100;
 
       if (duration) {
         progressBarRef.current.style.setProperty(
@@ -69,9 +69,10 @@ export default function Controls() {
       setIsPlaying(false);
       audio.currentTime = 0;
       setTimeProgress(0);
-      progressBarRef.current.value = "0";
-
-      progressBarRef.current.style.setProperty("--range-progress", "0%");
+      if (progressBarRef.current) {
+        progressBarRef.current.value = "0";
+        progressBarRef.current.style.setProperty("--range-progress", "0%");
+      }
     };
 
     audio.addEventListener("ended", handleEnded);

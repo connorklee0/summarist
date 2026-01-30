@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { FaCirclePlay } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+import { Book } from "@/app/lib/api/books";
 
-const SelectedBook = ({ data }) => {
+const SelectedBook = ({ data }: { data: Book[] }) => {
   const selectedBook = data[0];
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(0);

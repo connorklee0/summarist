@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/app/context/AuthContext";
 import { getUserSubscriptions } from "@/app/lib/api/stripeService";
-import { updateUserPlan } from "@/app/lib/api/authService";
+import { updateUserPlan, PlanType } from "@/app/lib/api/authService";
 
 export default function SubscriptionChecker() {
   const { user, userData, refreshUserData } = useAuth();
@@ -32,7 +32,7 @@ export default function SubscriptionChecker() {
 
             if (role && role !== "basic") {
               // Update user's plan
-              await updateUserPlan(user.uid, role);
+              await updateUserPlan(user.uid, role as PlanType);
 
               // Refresh user data
               await refreshUserData();

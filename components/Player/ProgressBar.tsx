@@ -33,9 +33,9 @@ export default function AudioProgressBar() {
       audioRef.current.currentTime = newTime;
       setTimeProgress(newTime);
 
+      const maxValue = parseFloat(progressBarRef.current.max) || 100;
       const progressPercent =
-        (progressBarRef.current.valueAsNumber / progressBarRef.current.max) *
-        100;
+        (progressBarRef.current.valueAsNumber / maxValue) * 100;
 
       if (audioDuration) {
         progressBarRef.current.style.setProperty(

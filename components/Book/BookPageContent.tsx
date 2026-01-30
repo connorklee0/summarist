@@ -10,7 +10,7 @@ import { RiBookmarkLine } from "react-icons/ri";
 import BookPageSkeleton from "../ui/skeleton/BookPageSkeleton";
 import { useAuth } from "@/app/context/AuthContext";
 import { useModal } from "@/app/context/ModalContext";
-import { getBookById } from "@/app/lib/api/books";
+import { getBookById, type Book } from "@/app/lib/api/books";
 
 export default function BookPageContent({
   params,
@@ -20,7 +20,7 @@ export default function BookPageContent({
   const { userData, loading: authLoading } = useAuth();
   const { openLoginModal } = useModal();
   const router = useRouter();
-  const [book, setBook] = useState<any>(null);
+  const [book, setBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -136,7 +136,7 @@ export default function BookPageContent({
             <p className="font-medium">Add title to My Library</p>
           </div>
 
-          <div className="font-bold">What's it about?</div>
+          <div className="font-bold">What&apos;s it about?</div>
           <div className="flex gap-4">
             {book.tags.map((tag: string, index: number) => (
               <div

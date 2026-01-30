@@ -84,8 +84,10 @@ const SideBar = () => {
               />
               <div
                 onClick={() => {
-                  {
-                    !user || !userData ? openLoginModal() : logoutUser();
+                  if (!user || !userData) {
+                    openLoginModal();
+                  } else {
+                    logoutUser();
                   }
                 }}
               >

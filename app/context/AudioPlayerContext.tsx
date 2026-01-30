@@ -15,8 +15,8 @@ interface AudioPlayerContextType {
   setCurrentTrack: (track: Track) => void;
   isPlaying: boolean;
   setIsPlaying: (playing: boolean) => void;
-  audioRef: React.RefObject<HTMLAudioElement>;
-  progressBarRef: React.RefObject<HTMLInputElement>;
+  audioRef: React.RefObject<HTMLAudioElement | null>;
+  progressBarRef: React.RefObject<HTMLInputElement | null>;
   timeProgress: number;
   setTimeProgress: (time: number) => void;
 }

@@ -4,6 +4,18 @@ export interface Book {
   id: string;
   title: string;
   author: string;
+  imageLink: string;
+  audioLink: string;
+  subTitle: string;
+  bookDescription: string;
+  authorDescription: string;
+  subscriptionRequired?: boolean;
+  averageRating: number;
+  totalRating: number;
+  type: string;
+  keyIdeas: number;
+  tags: string[];
+  [key: string]: unknown;
 }
 
 const BASE_URL = "https://us-central1-summaristt.cloudfunctions.net";

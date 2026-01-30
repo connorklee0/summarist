@@ -1,6 +1,7 @@
 import BookDisplay from "../ui/BookDisplay";
+import { Book } from "@/app/lib/api/books";
 
-export default async function DisplayBooks({ data }) {
+export default async function DisplayBooks({ data }: { data: Book[] }) {
   const booksToDisplay = data.slice(0, 5);
 
   return (
@@ -14,8 +15,8 @@ export default async function DisplayBooks({ data }) {
           title={book.title}
           author={book.author}
           subtitle={book.subTitle}
-          rating={book.averageRating}
-          subscriptionRequired={book.subscriptionRequired}
+          rating={String(book.averageRating)}
+          subscriptionRequired={book.subscriptionRequired ?? false}
         />
       ))}
     </div>
