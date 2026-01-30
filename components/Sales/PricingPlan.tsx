@@ -23,6 +23,11 @@ const Plan = () => {
       return;
     }
 
+    // Basic plan doesn't require checkout
+    if (plan === "basic") {
+      return;
+    }
+
     setIsLoading(true);
     setError("");
 

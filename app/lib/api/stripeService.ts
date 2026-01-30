@@ -11,13 +11,14 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { User } from "firebase/auth";
+import { PlanType } from "@/app/lib/api/authService";
 
 // Your Stripe publishable key (test mode)
 export const STRIPE_PUBLISHABLE_KEY =
   "pk_test_51SuhI22XspzkbURA6ptGKQN1JbEzTbnYAJ5HmaDvxHP6etM7e47rCgZ9OkclYAw27hARrctR7iZcaV0GV5nZdhSR00Xo2FnssH";
 
 // Price IDs from Stripe (test mode)
-export const PRICE_IDS = {
+export const PRICE_IDS: Record<Exclude<PlanType, "basic">, string> = {
   premium: "price_1SuxNU2XspzkbURA0r3IRmoL", // $9.99/month
   "premium-plus": "price_1SuxN42XspzkbURAa4b10kbz", // $99.99/year
 };
