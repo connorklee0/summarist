@@ -16,7 +16,7 @@ export default function AudioPlayer() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-[#2e2d2d] text-white px-10 z-50">
+    <div className="fixed bottom-0 left-0 right-0 bg-[#2e2d2d] text-white px-10 z-100">
       {currentTrack && (
         <audio
           ref={audioRef}
@@ -26,7 +26,7 @@ export default function AudioPlayer() {
       )}
 
       <div className="w-full py-4 mx-auto">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between max-md:flex-col">
           <TrackInfo />
           <Controls />
           <ProgressBar />

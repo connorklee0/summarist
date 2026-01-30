@@ -26,7 +26,7 @@ const Dropdown = () => {
   ];
 
   return (
-    <div className="mb-10">
+    <div className="mb-10 mx-5">
       <Accordion items={faqData} />
     </div>
   );

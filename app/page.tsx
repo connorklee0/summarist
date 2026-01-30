@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="max-w-267.5 w-full mx-auto">
+      <div className="md:max-w-267.5 w-full mx-auto max-md:max-w-3xl">
         <Nav />
         <Landing />
         <Features />

@@ -82,17 +82,22 @@ export default function BookPageContent({
 
   return (
     <div className="container">
-      <div className="row flex">
-        <div className="flex flex-col gap-4 w-[70%] pr-4">
-          <div className="font-bold text-4xl flex">
+      <div className="row flex flex-col md:flex-row gap-6 max-md:items-center">
+        <div className="w-70 h-70 relative md:hidden">
+          <Image src={book.imageLink} alt={book.title} fill />
+        </div>
+        <div className="flex flex-col gap-4 md:w-[70%] w-full md:pr-4">
+          <div className="font-bold text-4xl flex max-md:text-2xl">
             {book.title}
             {book.subscriptionRequired &&
               (userData?.plan === "basic" || !userData) &&
               " (Premium)"}
           </div>
 
-          <div className="font-bold text-xl">{book.author}</div>
-          <div className="font-extralight text-xl">{book.subTitle}</div>
+          <div className="font-bold text-xl max-md:text-lg">{book.author}</div>
+          <div className="font-extralight text-xl max-md:text-lg">
+            {book.subTitle}
+          </div>
           <div className="border-b border-[#ced4d7]"></div>
 
           <BookDetails
@@ -106,18 +111,21 @@ export default function BookPageContent({
           <div className="border-b border-[#ced4d7]"></div>
 
           <div className="flex gap-4">
-            <button className="book--btn">
-              <a className="flex items-center gap-2" onClick={handleReadClick}>
-                <LuBookOpenText className="text-xl" />
-                Read
-              </a>
-            </button>
-            <button className="book--btn">
-              <a className="flex items-center gap-2" onClick={handleReadClick}>
-                <HiOutlineMicrophone className="text-xl" />
-                Listen
-              </a>
-            </button>
+            <a
+              className="flex items-center gap-2 book--btn"
+              onClick={handleReadClick}
+            >
+              <LuBookOpenText className="text-xl" />
+              Read
+            </a>
+
+            <a
+              className="flex items-center gap-2 book--btn"
+              onClick={handleReadClick}
+            >
+              <HiOutlineMicrophone className="text-xl" />
+              Listen
+            </a>
           </div>
 
           <div className="text-[#0365f2] flex gap-2 items-center cursor-not-allowed">
@@ -130,19 +138,19 @@ export default function BookPageContent({
             {book.tags.map((tag: string, index: number) => (
               <div
                 key={index}
-                className="bg-[#cdd6d2d9] font-bold px-4 py-2 rounded"
+                className="bg-[#cdd6d2d9] font-bold px-4 py-2 rounded max-md:text-sm"
               >
                 {tag}
               </div>
             ))}
           </div>
-          <p>{book.bookDescription}</p>
+          <p className="max-md:text-sm">{book.bookDescription}</p>
 
           <div className="font-bold">About the author</div>
-          <p>{book.authorDescription}</p>
+          <p className="max-md:text-sm">{book.authorDescription}</p>
         </div>
 
-        <div className="w-70 h-70 relative">
+        <div className="w-70 h-70 relative max-md:hidden">
           <Image src={book.imageLink} alt={book.title} fill />
         </div>
       </div>
