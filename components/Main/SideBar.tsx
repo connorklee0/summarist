@@ -39,7 +39,7 @@ const SideBar = () => {
           <Image src={Logo} alt="Logo" />
         </div>
         <div
-          className={`flex flex-col justify-between py-8 overflow-auto h-[calc(100vh-80px)] ${
+          className={`flex flex-col justify-between py-8 overflow-auto max-md:pb-40 h-[calc(100vh-80px)] ${
             isPlayerPage && "pb-25"
           }`}
         >
