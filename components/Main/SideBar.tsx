@@ -24,26 +24,34 @@ const SideBar = () => {
 
   return (
     <>
+      {/* Overlay - Mobile only */}
       {isSidebarOpen && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-[#2a2727] opacity-70 z-40 md:hidden"
+          className="fixed inset-0 bg-black/70 z-40 md:hidden"
           onClick={toggleSidebar}
-        ></div>
+        />
       )}
-      <div
-        className={`fixed top-0 left-0 w-50 min-w-50 text-black bg-[#e5e4e4] transform transition-transform duration-300 ease-in-out z-60 ${
-          !isSidebarOpen && "max-md:-translate-x-full"
-        }`}
+      <aside
+        className={`
+          fixed top-0 left-0 h-full
+          w-50 bg-[#e5e4e4] 
+          transform transition-transform duration-300 ease-in-out
+          z-50
+          ${!isSidebarOpen && "max-md:-translate-x-full"}
+        `}
       >
-        <div className="max-w-40 h-15 mx-auto pt-5">
-          <Image src={Logo} alt="Logo" />
+        <div className="w-40 h-15 mx-auto pt-5">
+          <Image src={Logo} alt="Logo" priority />
         </div>
         <div
-          className={`flex flex-col justify-between py-8 overflow-auto  h-[calc(100vh-80px)] ${
-            isPlayerPage && "pb-25 max-md:pb-40"
-          }`}
+          className={`
+            flex flex-col justify-between 
+            py-8 overflow-auto
+            h-[calc(100vh-80px)]
+            ${isPlayerPage && "pb-25 max-md:pb-40"}
+          `}
         >
-          <div>
+          <nav>
             <ul>
               <SidebarItem
                 href="/for-you"
@@ -69,8 +77,9 @@ const SideBar = () => {
               />
               {isPlayerPage && <FontChange />}
             </ul>
-          </div>
-          <div>
+          </nav>
+
+          <nav>
             <ul>
               <SidebarItem
                 href="/settings"
@@ -98,9 +107,9 @@ const SideBar = () => {
                 />
               </div>
             </ul>
-          </div>
+          </nav>
         </div>
-      </div>
+      </aside>
     </>
   );
 };
