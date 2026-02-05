@@ -32,7 +32,7 @@ const SelectedBook = ({ data }: { data: Book[] }) => {
   return (
     <a
       href={`book/${selectedBook.id}`}
-      className="flex bg-[#efe1c3] md:max-w-160 rounded p-6 mb-6 gap-6 max-md:flex-col w-full max-w-full "
+      className="flex bg-[#efe1c3] md:max-w-160 rounded p-6 mb-6 gap-6 max-md:flex-col max-w-full "
     >
       <div className="md:w-1/3">{selectedBook.subTitle}</div>
       <div className="w-px bg-[#bac8ce] max-md:hidden"></div>{" "}

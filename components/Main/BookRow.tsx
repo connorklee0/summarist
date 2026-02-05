@@ -5,7 +5,7 @@ export default async function DisplayBooks({ data }: { data: Book[] }) {
   const booksToDisplay = data.slice(0, 5);
 
   return (
-    <div className="flex my-10">
+    <div className="flex my-10 overflow-scroll">
       {booksToDisplay.map((book, index) => (
         <BookDisplay
           key={index}
