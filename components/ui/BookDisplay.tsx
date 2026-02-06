@@ -29,15 +29,18 @@ const BookDisplay = ({
   const duration = useAudioDuration(audio);
   const { userData } = useAuth();
 
+  const needPremium =
+    subscriptionRequired && (!userData || userData.plan === "basic");
+
   return (
     <a href={`book/${id}`} className="w-55 ">
       <div className="flex flex-col mr-8 gap-1 hover:bg-[#c3bebe81] rounded">
         <div className="flex justify-end relative">
-          <div className="text-xs bg-black text-white w-15 text-center rounded-2xl absolute z-5 -top-6 right-6">
-            {subscriptionRequired &&
-              (userData?.plan === "basic" || !userData) &&
-              "Premium"}
-          </div>
+          {needPremium && (
+            <div className="text-xs bg-black text-white w-15 text-center rounded-2xl absolute z-10 top-2">
+              Premium
+            </div>
+          )}
         </div>
         <div className="relative w-40 h-40 px-4 mx-auto">
           <Image src={image} alt={title} fill />
