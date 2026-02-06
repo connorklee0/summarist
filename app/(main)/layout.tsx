@@ -18,7 +18,7 @@ export default function MainLayout({
 
           <div className="flex-1 flex flex-col w-full md:ml-60">
             <Search />
-            <main className="flex md:justify-start w-full z-1">{children}</main>
+            <main className="flex md:justify-start w-full">{children}</main>
           </div>
         </div>
       </FontSizeProvider>
